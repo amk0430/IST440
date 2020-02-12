@@ -3,7 +3,7 @@
   <head>
     <title>Young, Hungry N' Broke</title>
     <meta charset="utf-8">
-    <!-- <link rel="stylesheet" type="text/css" href="younghungrybroke.css"> -->
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
     <h1>Welcome to Young, Hungry N' Broke!</h1>
@@ -11,28 +11,28 @@
 
 
     <div class="tab">
-  <button class="tablinks" onclick="openTab(event, 'Recipes')">Recipes</button>
-  <button class="tablinks" onclick="openTab(event, 'Nutrition')">Nutrition</button>
-  <button class="tablinks" onclick="openTab(event, 'Account')">Account</button>
-   </div>
-    
-   <div id="Recipes" class="tabcontent">
-  <h3>Recipe Search</h3>
-  <label>Enter an ingredient</label>
-  <input type="text" id="recipeBox"></input>
-  <br>
+      <button class="tablinks" onclick="openTab(event, 'Recipes')">Recipes</button>
+      <button class="tablinks" onclick="openTab(event, 'Nutrition')">Nutrition</button>
+      <button class="tablinks" onclick="openTab(event, 'Account')">Account</button>
+    </div>
 
-</div>
+    <div id="Recipes" class="tabcontent">
+      <h3>Recipe Search</h3>
+      <label>Enter an ingredient</label>
+      <input type="text" id="recipeBox"></input>
+      <button onclick="">Get recipes</button>
+    </div>
 
-<!-- <div id="Paris" class="tabcontent">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p>
-</div>
+    <button onclick="getCat();">Get Categories</button>
+    <div id="cat"></div>
+    <div id="posters"></div>
 
-<div id="Tokyo" class="tabcontent">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
-</div> -->
+    <button onclick="getRandom();">Get Random Meal</button>
+    <div id="random"></div>
+    <!-- <div id="posters"></div> -->
+
+
+    <script src="client.js" defer></script>
 
   </body>
 </html>
