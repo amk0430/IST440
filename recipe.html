@@ -3,22 +3,94 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Recipe</title>
+    <title>Add a Recipe</title>
   </head>
   <body>
-    <h1>Recipe</h1>
-    <button type="button" name="popTableButton" onclick="popRecipeTable();">Populate Table</button>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th></th>
-        </tr>
-        <tr>
-          <td id="rName"></td>
-          <td></td>
-        </tr>
-    </table>
-    <script src="client.js" defer></script>
+    <!-- navigation bar -->
+    <div class="navBar">
+      <a href="younghungrybroke.html">Home</a>
+      <a href="recipe.html">Add Recipe</a>
+      <a href="#nutrition">Nutrition</a>
+      <a href="account.html">Account</a>
+    </div>
 
+    <h1 id="title">Share a Recipe!</h1>
+      <br>
+      <h3 id=searchuser>Search for Username's Recipe</h3>
+      <label>Enter a new username: </label>
+      <input type="text" id="username2"></input>
+      <button onclick="getUserInfo();">Get User Info</button>
+      <table id="userTable" border='1' style='border-collapse:collapse'>
+       <tr>
+         <th>Username</th>
+         <th>Title</th>
+         <th>Ingredients</th>
+         <th>Description</th>
+         <th>Directions</th>
+       </tr>
+       <tr>
+         <td id="usernameTD2"></td>
+         <td id="titleTD2"></td>
+         <td id="ingredientTD2"></td>
+         <td id="descriptionTD2"></td>
+         <td id="directionTD2"></td>
+       </tr>
+      </table>
+      <br>
+
+      <h3 id="createRecipe">Create New Recipe</h3>
+      <label>Enter a username: </label>
+      <input type="text" id="username1"></input>  <br>
+      <label>Enter the Title: </label>
+      <input type="text" id="recipeTitle"></input> <br>
+      <label>Enter the Ingredients: </label>
+      <input type="text" id="recipeIngredients"></input> <br>
+      <label>Enter the Description: </label>
+      <input type="text" id="recipeDescription"></input> <br>
+      <label>Enter the Directions: </label>
+      <input type="text" id="recipeDirections"></input> <br>
+      <button onclick="addNewRecipe();">Add New Recipe</button>
+      <br><br>
+      <p>New Recipe:</p>
+      <table id="recipeTable" border='1' style='border-collapse:collapse'>
+       <tr>
+         <th>Username</th>
+         <th>Title</th>
+         <th>Ingredients</th>
+         <th>Description</th>
+         <th>Directions</th>
+       </tr>
+       <tr>
+         <td id="usernameTD"></td>
+         <td id="titleTD"></td>
+         <td id="ingredientTD"></td>
+         <td id="descriptionTD"></td>
+         <td id="directionTD"></td>
+       </tr>
+      </table>
+      <br>
+
+      <h3 id="updateRecipe">Update a recipe</h3>
+      <label>Enter the username you want to update: </label>
+      <input type="text" id="usernameU"></input>  <br>
+      <label>Enter updated title: </label>
+      <input type="text" id="titleU"></input> <br>
+      <label>Enter updated ingredients: </label>
+      <input type="text" id="ingredientU"></input> <br>
+      <label>Enter updated description: </label>
+      <input type="text" id="descriptionU"></input> <br>
+      <label>Enter updated directions: </label>
+      <input type="text" id="directionU"></input> <br>
+      <button id="updateRecipeButton" onclick="updateRecipe();">Update New Recipe</button>
+      <p id="updateP"></p>
+      <br>
+
+      <h3 id="allRecipes">Display All Recipes</h3>
+      <button id="getRecipeButton" onclick="getAll();">Get All Reservations</button>
+      <div id="allRecipeDiv"></div>
+      <br>
+
+        <script src="client.js" defer></script>
+        <script src="server.js" defer></script>
   </body>
 </html>
