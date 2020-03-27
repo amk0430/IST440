@@ -1,6 +1,14 @@
-title {
-  font-size: 25px;
-  color: white;
+*{
+  margin: 0;
+  padding: 0;
+}
+
+#title {
+  font-size: 37px;
+  color: black;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 3px solid black;
 }
 
 /* Add a black background color to the top navigation */
@@ -30,3 +38,96 @@ title {
   background-color: #3498DB ;
   color: white;
 }
+
+#sidebar{
+  position: fixed;
+  /* display: none; */
+  height: 100%;
+  width: 0;
+  border: 3px solid black;
+  z-index: 1;
+  background-color: white;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+#closebtn{
+  float: right;
+  /* width: -1px; */
+  /* display: inline-block; */
+  border: 1px solid black;
+}
+
+h3{
+  font-size: 26px;
+  padding-bottom: 5px;
+}
+
+#recipeBox, #searchBtn, #randomBtn{
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+#searchBtn:hover, #randomBtn:hover{
+  background: #ccc;
+}
+
+
+#searchbox {
+  margin: 15px;
+}
+/* FLEXBOX FOR THE CATEGORIES - START*/
+#catHeader{
+  margin: 15px;
+}
+#posters, #searchedRecipes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  /* background-color: lightblue; */
+}
+.image {
+  opacity: 1;
+  /* display: block; */
+  width: 300px;
+  /* height: auto; */
+  transition: .5s ease;
+  backface-visibility: hidden;
+  border: solid black 2px;
+}
+
+.recipeImages{
+  width: 250px;
+}
+
+.mid {
+  transition: .5s ease;
+  opacity: 0;
+  /* position: relative; */
+  /* display: inline-block; */
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+.box:hover .image {
+  opacity: 0.3;
+}
+.box:hover .mid {
+  opacity: 1;
+}
+.text {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+  text-align: center;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+/* FLEXBOX FOR THE CATEGORIES - END*/
