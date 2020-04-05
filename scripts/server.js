@@ -5,6 +5,8 @@ const hostname = '127.0.0.1';
 const port = 3000;
 const fs = require('fs');
 let data = null;
+const cors = require('cors');
+app.use(cors());
 
 let recipeArray = [];
 let recipeList = {};
@@ -12,26 +14,24 @@ let userArray = [];
 let usernameList = {};
 
 
-app.post('/recipe/add/:username', (req, recipe) => {
+app.post('/addUser/:username', (req, res) => {
   console.log("writing a username")
   let username = req.params.username;
   let userOb = {};
   userOb.username = username;
 
-  let recipeFile = JSON.parse(fs.readFileSync('usernames.json'));
-  resFile.push(userOb)
+  let userFile = JSON.parse(fs.readFileSync('usernames.json'));
+  resFile.push(userOb);
 
-  s.writeFileSync('usernames.json', JSON.stringify(recipeFile), err => {
+  fs.writeFileSync('usernames.json', JSON.stringify(userFile), err => {
     if(err) throw err;
     console.log('Saved file');
   })
-  recipe.send(recipeFile);
+  res.send(userFile);
   });
 
 
-
-  //Add a username
-app.get('/recipe/getInfo/:username', (req, recipe) => {
+app.get('/getUsers/:username', (req, res) => {
   let username = req.params.username;
   let recipeInfo = "";
   let recipeFile = JSON.parse(fs.readFileSync('recipe.json'));
@@ -40,13 +40,12 @@ app.get('/recipe/getInfo/:username', (req, recipe) => {
     if(recipeFile[i].username === username)
     {
       console.log(recipeFile);
-      recipe.send(recipeFile[i]);
+      res.send(recipeFile[i]);
     }
 }
 });
 
-//Create a reservation for a given user. It should specify username, start date, start time, and number of hours
-app.post('/recipe/createRecipe/:username/:recipeTitle/:recipeIngredients/:recipeDescription/:recipeDirections', (req, recipe) => {
+app.post('/recipe/createRecipe/:username/:recipeTitle/:recipeIngredients/:recipeDescription/:recipeDirections', (req, res) => {
   let username = req.params.username;
   let recipeTitle = req.params.recipeTitle;
   let recipeIngredients = req.params.recipeIngredients;
@@ -66,17 +65,17 @@ app.post('/recipe/createRecipe/:username/:recipeTitle/:recipeIngredients/:recipe
     if(err) throw err;
     console.log('Saved file');
   })
-  recipe.send(recipeFile);
+  res.send(recipeFile);
 });
 
 //Get a list of reservations
-app.get('/recipe/getAll', (req, recipe) => {
+app.get('/recipe/getAll', (req, res) => {
   let recipeFile = JSON.parse(fs.readFileSync('recipe.json'));
-  recipe.send(recipeFile);
+  res.send(recipeFile);
 });
 
 //Update a reservation for a given user. It should specify username, start date, start time, and number of hours
-app.put('/recipe/updateRecipe/:username/:recipeTitle/:recipeIngredients/:recipeDescription/:recipeDirections', (req, recipe) => {
+app.put('/recipe/updateRecipe/:username/:recipeTitle/:recipeIngredients/:recipeDescription/:recipeDirections', (req, res) => {
   let username = req.params.username;
   let recipeTitle = req.params.recipeTitle;
   let recipeIngredients = req.params.recipeIngredients;
@@ -102,7 +101,7 @@ app.put('/recipe/updateRecipe/:username/:recipeTitle/:recipeIngredients/:recipeD
     if(err) throw err;
     console.log('Saved file');
   })
-  recipe.send(recipeFile);
+  res.send(recipeFile);
 });
 
 app.listen(port, () => {

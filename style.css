@@ -10,6 +10,9 @@
   padding: 10px;
   border-bottom: 3px solid black;
 }
+#logo{
+  height: 150px;
+}
 
 /* Add a black background color to the top navigation */
 .navBar {
@@ -82,52 +85,170 @@ h3{
 }
 /* FLEXBOX FOR THE CATEGORIES - START*/
 #catHeader{
-  margin: 15px;
+  margin: 20px;
 }
 #posters, #searchedRecipes {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  /* background-color: lightblue; */
-}
-.image {
-  opacity: 1;
-  /* display: block; */
-  width: 300px;
-  /* height: auto; */
-  transition: .5s ease;
-  backface-visibility: hidden;
-  border: solid black 2px;
 }
 
-.recipeImages{
-  width: 250px;
+
+.box {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
 }
 
 .mid {
   transition: .5s ease;
   opacity: 0;
-  /* position: relative; */
-  /* display: inline-block; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   text-align: center;
 }
+
 .box:hover .image {
   opacity: 0.3;
 }
+
 .box:hover .mid {
   opacity: 1;
 }
+
 .text {
   background-color: #4CAF50;
   color: white;
   font-size: 16px;
   padding: 16px 32px;
-  text-align: center;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 }
 /* FLEXBOX FOR THE CATEGORIES - END*/
+
+/* NUTRITIONAL FACTS */
+@import "compass/css3";
+/* .image {
+  width: 250px;
+  float: left;
+  margin: 20px;
+}
+body {
+  font-size: small;
+  line-height: 1.4;
+}
+p {
+  margin: 0;
+} */
+
+.performance-facts {
+  border: 1px solid black;
+  margin: 20px;
+  float: left;
+  width: 280px;
+  padding: 0.5rem;
+  table {
+    border-collapse: collapse;
+  }
+}
+.performance-facts__title {
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 0 0 0.25rem 0;
+}
+.performance-facts__header {
+  border-bottom: 10px solid black;
+  padding: 0 0 0.25rem 0;
+  margin: 0 0 0.5rem 0;
+  p {
+    margin: 0;
+  }
+}
+.performance-facts__table {
+  width: 100%;
+  thead tr {
+    th, td {
+      border: 0;
+    }
+  }
+  th, td {
+    font-weight: normal;
+    text-align: left;
+    padding: 0.25rem 0;
+    border-top: 1px solid black;
+    white-space: nowrap;
+  }
+  td {
+    &:last-child {
+      text-align: right;
+    }
+  }
+  .blank-cell {
+    width: 1rem;
+    border-top: 0;
+  }
+  .thick-row {
+    th, td {
+      border-top-width: 5px;
+    }
+  }
+}
+.small-info {
+  font-size: 0.7rem;
+}
+
+.performance-facts__table--small {
+  @extend .performance-facts__table;
+  border-bottom: 1px solid #999;
+  margin: 0 0 0.5rem 0;
+  thead {
+    tr {
+      border-bottom: 1px solid black;
+    }
+  }
+  td {
+    &:last-child {
+      text-align: left;
+    }
+  }
+  th, td {
+    border: 0;
+    padding: 0;
+  }
+}
+
+.performance-facts__table--grid {
+  @extend .performance-facts__table;
+  margin: 0 0 0.5rem 0;
+  td {
+    &:last-child {
+      text-align: left;
+      &::before {
+        content: "•";
+        font-weight: bold;
+        margin: 0 0.25rem 0 0;
+      }
+    }
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+.thick-end {
+  border-bottom: 10px solid black;
+}
+.thin-end {
+  border-bottom: 1px solid black;
+}
+/* NUTRITION FACTS END */

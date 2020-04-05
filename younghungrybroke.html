@@ -4,6 +4,7 @@
   <title>Young, Hungry N' Broke</title>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- Add favicon -->
 </head>
 <body>
   <!-- navigation bar -->
@@ -12,11 +13,14 @@
     <a href="recipe.html">Add Recipe</a>
     <a href="#nutrition">Nutrition</a>
     <a href="account.html">Account</a>
-    <button id="randomBtn" onclick="getRandom();">Find Random Recipe</button>
+    <!-- <button id="randomBtn" onclick="getRandom();">Find Random Recipe</button> -->
     <button id="searchBtn" onclick="searchMainI();">Find recipes</button>
     <input type="text" id="recipeBox" placeholder="Search..."></input>
   </div>
+
   <h1 id="title">Young, Hungry N' Broke</h1>
+  <!-- Not sure where to put the logo -->
+  <img id="logo" src="LogoClean.png" alt="Logo">
 
   <!-- Recipe Sidebar -->
   <div id="sidebar">
@@ -28,108 +32,295 @@
     <ul id="ingrList"></ul>
     <p id="dietLabels"></p>
     <img id="recImg">
+    <button type="button" name="button" onclick="displayNutrition();">Nutrition</button>
     <p id="closebtn" onclick="closeBtn();">Close</p>
   </div>
 
   <div id="searchedRecipes"></div>
 
   <!-- fix random bc it is pulling from old api -->
-  <div id="random"></div>
+  <!-- <div id="random"></div> -->
+
+  <!-- Nutrition Facts -->
+  <!-- From https://codepen.io/chriscoyier/pen/egHEK -->
+<!-- <section class="performance-facts">
+  <header class="performance-facts__header">
+    <h1 class="performance-facts__title">Nutrition Facts</h1>
+    <p>Serving Size 1/2 cup (about 82g)
+    <p>Serving Per Container 8</p>
+  </header>
+  <table class="performance-facts__table">
+    <thead>
+      <tr>
+        <th colspan="3" class="small-info">
+          Amount Per Serving
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th colspan="2">
+          <b>Calories</b>
+          200
+        </th>
+        <td>
+          Calories from Fat
+          130
+        </td>
+      </tr>
+      <tr class="thick-row">
+        <td colspan="3" class="small-info">
+          <b>% Daily Value*</b>
+        </td>
+      </tr>
+      <tr>
+        <th colspan="2">
+          <b>Total Fat</b>
+          14g
+        </th>
+        <td>
+          <b>22%</b>
+        </td>
+      </tr>
+      <tr>
+        <td class="blank-cell">
+        </td>
+        <th>
+          Saturated Fat
+          9g
+        </th>
+        <td>
+          <b>22%</b>
+        </td>
+      </tr>
+      <tr>
+        <td class="blank-cell">
+        </td>
+        <th>
+          Trans Fat
+          0g
+        </th>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <th colspan="2">
+          <b>Cholesterol</b>
+          55mg
+        </th>
+        <td>
+          <b>18%</b>
+        </td>
+      </tr>
+      <tr>
+        <th colspan="2">
+          <b>Sodium</b>
+          40mg
+        </th>
+        <td>
+          <b>2%</b>
+        </td>
+      </tr>
+      <tr>
+        <th colspan="2">
+          <b>Total Carbohydrate</b>
+          17g
+        </th>
+        <td>
+          <b>6%</b>
+        </td>
+      </tr>
+      <tr>
+        <td class="blank-cell">
+        </td>
+        <th>
+          Dietary Fiber
+          1g
+        </th>
+        <td>
+          <b>4%</b>
+        </td>
+      </tr>
+      <tr>
+        <td class="blank-cell">
+        </td>
+        <th>
+          Sugars
+          14g
+        </th>
+        <td>
+        </td>
+      </tr>
+      <tr class="thick-end">
+        <th colspan="2">
+          <b>Protein</b>
+          3g
+        </th>
+        <td>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="performance-facts__table--grid">
+    <tbody>
+      <tr>
+        <td colspan="2">
+          Vitamin A
+          10%
+        </td>
+        <td>
+          Vitamin C
+          0%
+        </td>
+      </tr>
+      <tr class="thin-end">
+        <td colspan="2">
+          Calcium
+          10%
+        </td>
+        <td>
+          Iron
+          6%
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="small-info">* Percent Daily Values are based on a 2,000 calorie diet. Your daily values may be higher or lower depending on your calorie needs:</p>
+
+  <table class="performance-facts__table--small small-info">
+    <thead>
+      <tr>
+        <td colspan="2"></td>
+        <th>Calories:</th>
+        <th>2,000</th>
+        <th>2,500</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th colspan="2">Total Fat</th>
+        <td>Less than</td>
+        <td>65g</td>
+        <td>80g</td>
+      </tr>
+      <tr>
+        <td class="blank-cell"></td>
+        <th>Saturated Fat</th>
+        <td>Less than</td>
+        <td>20g</td>
+        <td>25g</td>
+      </tr>
+      <tr>
+        <th colspan="2">Cholesterol</th>
+        <td>Less than</td>
+        <td>300mg</td>
+        <td>300 mg</td>
+      </tr>
+      <tr>
+        <th colspan="2">Sodium</th>
+        <td>Less than</td>
+        <td>2,400mg</td>
+        <td>2,400mg</td>
+      </tr>
+      <tr>
+        <th colspan="3">Total Carbohydrate</th>
+        <td>300g</td>
+        <td>375g</td>
+      </tr>
+      <tr>
+        <td class="blank-cell"></td>
+        <th colspan="2">Dietary Fiber</th>
+        <td>25g</td>
+        <td>30g</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="small-info">
+    Calories per gram:
+  </p>
+  <p class="small-info text-center">
+    Fat 9
+    &bull;
+    Carbohydrate 4
+    &bull;
+    Protein 4
+  </p>
+
+</section> -->
 
 
 
   <!-- Categories -->
   <h3 id="catHeader">Browse Categories</h3>
   <div id="posters">
-    <div class="box">
-      <img class="image" id="pic1">
+    <div class="box" onclick="getFromCat(1);">
+      <img class="image" id="pic1" src="https://images-na.ssl-images-amazon.com/images/I/71M8vjcVf-L._AC_SX522_.jpg">
       <div class="mid">
-        <div class="text" id="t1"></div>
+        <p class="text" id="t1">Balanced</p>
       </div>
     </div>
-    <div class="box">
-      <img class="image" id="pic2">
+    <div class="box" onclick="getFromCat(2);">
+      <img class="image" id="pic2" src="https://s3.amazonaws.com/img.mynetdiary.com/blog/can-a-high-protein-diet-help-you-lose-weight.jpeg">
       <div class="mid">
-        <div class="text" id="t2"></div>
+        <p class="text" id="t2">High-Protein</p>
       </div>
     </div>
-    <div class="box">
-      <img class="image" id="pic3">
+    <div class="box" onclick="getFromCat(3);">
+      <img class="image" id="pic3" src="https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/is-ultra-low-fat-healthy-1296x728-feature.jpg?w=1155&h=1528">
       <div class="mid">
-        <div class="text" id="t3"></div>
+        <p class="text" id="t3">Low-Fat</p>
       </div>
     </div>
-    <div class="box">
-      <img class="image" id="pic4">
+    <div class="box" onclick="getFromCat(4);">
+      <img class="image" id="pic4" src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimagesvc.meredithcorp.io%2Fv3%2Fmm%2Fimage%3Furl%3Dhttps%253A%252F%252Fstatic.onecms.io%252Fwp-content%252Fuploads%252Fsites%252F35%252F2019%252F05%252F24145128%252Fketovsatkins.jpg&q=85">
       <div class="mid">
-        <div class="text" id="t4"></div>
+        <p class="text" id="t4">Low-Carb</p>
       </div>
     </div>
-    <div class="box">
-      <img class="image" id="pic5">
+    <div class="box" onclick="getFromCat(5);">
+      <img class="image" id="pic5" src="https://images.theconversation.com/files/229615/original/file-20180727-106511-18ssguj.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip">
       <div class="mid">
-        <div class="text" id="t5"></div>
+        <p class="text" id="t5">Vegan</p>
       </div>
     </div>
-    <div class="box">
-      <img class="image" id="pic6">
+    <div class="box" onclick="getFromCat(6);">
+      <img class="image" id="pic6" src="https://images.everydayhealth.com/images/diet-nutrition/vegetarian-vegan-diets-linked-to-higher-stroke-risk-722x406.jpg?sfvrsn=299d1a62_0">
       <div class="mid">
-        <div class="text" id="t6"></div>
+        <p class="text" id="t6">Vegetarian</p>
       </div>
     </div>
-    <div class="box">
-      <img class="image" id="pic7">
+    <div class="box" onclick="getFromCat(7);">
+      <img class="image" id="pic7" src="https://lh3.googleusercontent.com/AjItQ71M-2y9BtYywV7JHlQY4OwoViVt3lgaIvdzy8Qap8AQLe44kIbQX8YKDGL6zwC1tA=s85">
       <div class="mid">
-        <div class="text" id="t7"></div>
+        <p class="text" id="t7">Sugar-Conscious</p>
       </div>
     </div>
-    <div class="box">
-      <img class="image" id="pic8">
+    <div class="box" onclick="getFromCat(8);">
+      <img class="image" id="pic8" src="https://www.peta.org/wp-content/uploads/2018/09/peanut-tree-nut-668x336.jpg?20190104014816">
       <div class="mid">
-        <div class="text" id="t8"></div>
+        <p class="text" id="t8">Peanut-Free</p>
       </div>
     </div>
-    <div class="box">
-      <img class="image" id="pic9">
+    <div class="box" onclick="getFromCat(9);">
+      <img class="image" id="pic9" src="https://keystoketosis.com/wp-content/uploads/2018/07/featured-nut-free-fat-ketogenic-diet.jpg">
       <div class="mid">
-        <div class="text" id="t9"></div>
+        <p class="text" id="t9">Tree-Nut Free</p>
       </div>
     </div>
-    <div class="box">
-      <img class="image" id="pic10">
+    <div class="box" onclick="getFromCat(10);">
+      <img class="image" id="pic10" src="https://megahealth.ca/wp-content/uploads/2019/12/no-alcohol.jpg">
       <div class="mid">
-        <div class="text" id="t10"></div>
-      </div>
-    </div>
-    <div class="box">
-      <img class="image" id="pic11">
-      <div class="mid">
-        <div class="text" id="t11"></div>
-      </div>
-    </div>
-    <div class="box">
-      <img class="image" id="pic12">
-      <div class="mid">
-        <div class="text" id="t12"></div>
-      </div>
-    </div>
-    <div class="box">
-      <img class="image" id="pic13">
-      <div class="mid">
-        <div class="text" id="t13"></div>
+        <p class="text" id="t10">Alcohol Free</p>
       </div>
     </div>
   </div>
 
-
-
-
   <div id="edamam-badge" data-color="white"></div>
-
   <script src="https://developer.edamam.com/attribution/badge.js"></script>
-  <script src="client.js" defer></script>
-  <script src="server.js" defer></script>
-
-
+  <script src="scripts/client.js" defer></script>
+  <script src="scripts/apiClient.js" defer></script>
 </body>
 </html>
