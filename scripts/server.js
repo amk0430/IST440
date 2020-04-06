@@ -28,7 +28,7 @@ app.post('/addUser/:username', (req, res) => {
     console.log('Saved file');
   })
   res.send(userFile);
-  });
+});
 
 
 app.get('/getUsers/:username', (req, res) => {

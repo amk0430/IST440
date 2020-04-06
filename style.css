@@ -1,68 +1,79 @@
 *{
   margin: 0;
   padding: 0;
+  font-family: 'Gloria Hallelujah', cursive;
+  background-color: white;
 }
-
+#titleDiv{
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+}
 #title {
+  font-family: 'Gloria Hallelujah', cursive;
   font-size: 37px;
   color: black;
-  text-align: center;
   padding: 10px;
-  border-bottom: 3px solid black;
 }
-#logo{
-  height: 150px;
+#logo{height: 100px;}
+h3{
+  font-size: 26px;
+  padding-bottom: 5px;
 }
 
-/* Add a black background color to the top navigation */
 .navBar {
-  background-color: #333;
+  background-color: #AAC85C;
   overflow: hidden;
 }
-
-/* Style the links inside the navigation bar */
-.navBar a {
+.button, .navBar a {
+  background-color: #AAC85C;
   float: left;
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 20px;
 }
-
-/* Change the color of links on hover */
 .navBar a:hover {
   background-color: #ddd;
   color: black;
 }
-
-/* Add a color to the active/current link */
 .navBar a.active {
   background-color: #3498DB ;
   color: white;
 }
 
-#sidebar{
-  position: fixed;
-  /* display: none; */
-  height: 100%;
-  width: 0;
+#sidebarContainer{
+  position: absolute;
+  top: 50%;
+  margin-top: -200px;
+  z-index: -1;
+  width: 100%;
+}
+#content{
+  /* height: 75%; */
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
   border: 3px solid black;
-  z-index: 1;
   background-color: white;
   overflow-x: hidden;
   transition: 0.5s;
-}
-#closebtn{
-  float: right;
-  /* width: -1px; */
-  /* display: inline-block; */
-  border: 1px solid black;
+  display: flex;
 }
 
-h3{
-  font-size: 26px;
-  padding-bottom: 5px;
+#nutritionBox{
+  width: 50%;
+  float: right;
+}
+.button{
+  height: 30px;
+  display: inline;
+}
+
+
+#recipeInfoBox{
+  width: 40%;
 }
 
 #recipeBox, #searchBtn, #randomBtn{
@@ -78,13 +89,15 @@ h3{
 #searchBtn:hover, #randomBtn:hover{
   background: #ccc;
 }
-
-
 #searchbox {
   margin: 15px;
 }
+#recipeDivBox{
+  display: none;
+}
 /* FLEXBOX FOR THE CATEGORIES - START*/
-#catHeader{
+#catHeader, #searchedCat{
+  text-align: center;
   margin: 20px;
 }
 #posters, #searchedRecipes {
@@ -93,22 +106,22 @@ h3{
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-
-
 .box {
   position: relative;
-  width: 50%;
+  margin: 8px;
+  border: 3px solid;
+  width: 300px;
+  justify-content: space-around;
 }
-
 .image {
   opacity: 1;
   display: block;
   width: 100%;
-  height: auto;
+  height: 200px;
   transition: .5s ease;
   backface-visibility: hidden;
+  align-items: center;
 }
-
 .mid {
   transition: .5s ease;
   opacity: 0;
@@ -119,17 +132,14 @@ h3{
   -ms-transform: translate(-50%, -50%);
   text-align: center;
 }
-
 .box:hover .image {
   opacity: 0.3;
 }
-
 .box:hover .mid {
   opacity: 1;
 }
-
 .text {
-  background-color: #4CAF50;
+  background-color: #AAC85C;
   color: white;
   font-size: 16px;
   padding: 16px 32px;
@@ -138,11 +148,7 @@ h3{
 
 /* NUTRITIONAL FACTS */
 @import "compass/css3";
-/* .image {
-  width: 250px;
-  float: left;
-  margin: 20px;
-}
+/*
 body {
   font-size: small;
   line-height: 1.4;
@@ -150,12 +156,11 @@ body {
 p {
   margin: 0;
 } */
-
 .performance-facts {
   border: 1px solid black;
   margin: 20px;
   float: left;
-  width: 280px;
+  width: 50%;
   padding: 0.5rem;
   table {
     border-collapse: collapse;
@@ -206,7 +211,6 @@ p {
 .small-info {
   font-size: 0.7rem;
 }
-
 .performance-facts__table--small {
   @extend .performance-facts__table;
   border-bottom: 1px solid #999;
@@ -226,7 +230,6 @@ p {
     padding: 0;
   }
 }
-
 .performance-facts__table--grid {
   @extend .performance-facts__table;
   margin: 0 0 0.5rem 0;
@@ -241,7 +244,6 @@ p {
     }
   }
 }
-
 .text-center {
   text-align: center;
 }
