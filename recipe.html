@@ -19,7 +19,7 @@
     </div>
 
     <div id="shareRecipe">
-      <div id=recipeContent>
+      <!-- <div id=recipeContent> -->
         <div id="recipeForm">
           <label>Username: </label>
           <input type="text" id="username1"></input>  <br>
@@ -33,42 +33,29 @@
           <input type="text" id="recipeDirections"></input> <br>
           <button type="button" class="rButton" onclick="addNewRecipe();">Add New Recipe</button>
         </div>
-      <!-- <h3 id="createRecipe">Create New Recipe</h3>
-      <label>Username: </label>
-      <input type="text" id="username1"></input>  <br>
-      <label>Title: </label>
-      <input type="text" id="recipeTitle"></input> <br>
-      <label>Ingredients: </label>
-      <input type="text" id="recipeIngredients"></input> <br>
-      <label>Categories: </label>
-      <input type="text" id="recipeCategories"></input> <br>
-      <label>Directions: </label>
-      <input type="text" id="recipeDirections"></input> <br>
-      <button onclick="addNewRecipe();">Add New Recipe</button>
-      <br><br> -->
-      <!-- <p>New Recipe:</p>
-      <table id="recipeTable" border='1' style='border-collapse:collapse'>
-       <tr>
-         <th>Username</th>
-         <th>Title</th>
-         <th>Ingredients</th>
-         <th>Description</th>
-         <th>Directions</th>
-       </tr>
-       <tr>
-         <td id="usernameTD"></td>
-         <td id="titleTD"></td>
-         <td id="ingredientTD"></td>
-         <td id="descriptionTD"></td>
-         <td id="directionTD"></td>
-       </tr>
+      <table id="recipeTable" border="1" style="border-collapse:collapse">
+        <tr>
+          <th>Username</th>
+          <th>Title</th>
+          <th>Ingredients</th>
+          <th>Category</th>
+          <th>Directions</th>
+        </tr>
+          <tr>
+            <td id="usernameTD"></td>
+            <td id="titleTD"></td>
+            <td id="ingredientTD"></td>
+            <td id="categoriesTD"></td>
+            <td id="directionTD"></td>
+          </tr>
       </table>
-      <br> -->
+    </div>
 
-      <!-- <h3 id="allRecipes">Display All Recipes</h3>
-      <button id="getRecipeButton" onclick="getAll();">Get All Reservations</button>
+
+
+      <button id="getRecipeButton" onclick="getAll();">Get All Recipes</button>
       <div id="allRecipeDiv"></div>
-      <br> -->
+      <br>
 
       <script src="client.js" defer></script>
   </body>

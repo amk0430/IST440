@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Add User</title>
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+    <title>Add Username</title>
+
   </head>
   <body>
     <div class="navBar">
@@ -13,13 +15,16 @@
       <a href="account.html">Account</a>
     </div>
 
-    <h3>Create An Account</h3>
+    <div id="titleDiv">
+      <h1 id="title">Create Account!</h1>
+    </div>
+
+    <div id=newAccount>
     <label>Enter a new username: </label>
     <input type="text" id="username"></input>
-    <label>Enter a password: </label>
-    <input type="text" id="password"></input>
-    <button onclick="addUser();">Create AccountS</button>
-    <div id="usernameList">Accounts:</div>
+    <button type="button" class="aButton" onclick="addUser();">Submit</button>
+    <div id="usernameList">Usernames:</div>
+  </div>
     <br>
 
     <script src="client.js" defer></script>

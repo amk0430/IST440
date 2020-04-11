@@ -45,18 +45,18 @@ app.get('/getUsers/:username', (req, res) => {
   }
 });
 
-app.post('/recipe/createRecipe/:username/:recipeTitle/:recipeIngredients/:recipeDescription/:recipeDirections', (req, res) => {
+app.post('/recipe/createRecipe/:username/:recipeTitle/:recipeIngredients/:recipeCategories/:recipeDirections', (req, res) => {
   let username = req.params.username;
   let recipeTitle = req.params.recipeTitle;
   let recipeIngredients = req.params.recipeIngredients;
-  let recipeDescription = req.params.recipeDescription;
+  let recipeCategories = req.params.recipeCategories;
   let recipeDirections = req.params.recipeDirections;
 
   let recipeOb = {};
   recipeOb.username = username;
   recipeOb.recipeTitle = recipeTitle;
   recipeOb.recipeIngredients = recipeIngredients;
-  recipeOb.recipeDescription = recipeDescription;
+  recipeOb.recipeCategories = recipeCategories;
   recipeOb.recipeDirections = recipeDirections;
 
   let recipeFile = JSON.parse(fs.readFileSync('recipe.json'));
@@ -71,36 +71,6 @@ app.post('/recipe/createRecipe/:username/:recipeTitle/:recipeIngredients/:recipe
 //Get a list of reservations
 app.get('/recipe/getAll', (req, res) => {
   let recipeFile = JSON.parse(fs.readFileSync('recipe.json'));
-  res.send(recipeFile);
-});
-
-//Update a reservation for a given user. It should specify username, start date, start time, and number of hours
-app.put('/recipe/updateRecipe/:username/:recipeTitle/:recipeIngredients/:recipeDescription/:recipeDirections', (req, res) => {
-  let username = req.params.username;
-  let recipeTitle = req.params.recipeTitle;
-  let recipeIngredients = req.params.recipeIngredients;
-  let recipeDescription = req.params.recipeDescription;
-  let recipeDirections = req.params.recipeDirections;
-
-  let recipeOb = {};
-  recipeOb.username = username;
-  recipeOb.recipeTitle = recipeTitle;
-  recipeOb.recipeIngredients = recipeIngredients;
-  recipeOb.recipeDescription = recipeDescription;
-  recipeOb.recipeDirections = recipeDirections;
-
-  let recipeFile = JSON.parse(fs.readFileSync('recipe.json'));
-  for(let i=0;i<recipeFile.length;i++){
-    console.log(recipeFile[i].username);
-    if(recipeFile[i].username === username)
-    {
-      recipeFile.splice(i, 1, resOb);
-    }
-  }
-  fs.writeFileSync('recipe.json', JSON.stringify(recipeFile), err => {
-    if(err) throw err;
-    console.log('Saved file');
-  })
   res.send(recipeFile);
 });
 
