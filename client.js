@@ -11,6 +11,8 @@ function addUser() {
   let request = new XMLHttpRequest();
   request.open("POST", "http://127.0.0.1:3000/addUser/" + username, true);
   console.log("Username = " + username);
+  var success;
+  confirm("Username Added!")
   request.onload = function() {
     data = JSON.parse(this.response);
     if (request.status == 200)
@@ -20,7 +22,6 @@ function addUser() {
         var newP = document.createElement("p");
         var userNode = document.createTextNode(data[i].username);
         newP.appendChild(userNode);
-        document.querySelector("#usernameList").appendChild(newP);
       }
     }
     else {console.log("ERROR");}
@@ -65,15 +66,6 @@ function getAll() {
     if (request.status == 200)
     {
       console.log(data);
-      // data.sort((res1, res2) => {
-      //   //sort by date
-      //   if(res1.recipeTitle > res2.recipeTitle) return 1;
-      //   if(res1.recipeTitle < res2.recipeTitle) return -1;
-      //   //now sort by time if date is the same
-      //   if(res1.recipeIngredients > res2.recipeIngredients) return 1;
-      //   if(res1.recipeIngredients < res2.recipeIngredients) return -1;
-      // });
-      //change this to a HTML table
       for(let i=0;i<data.length;i++)
       {
         var recipe = "Username: " + data[i].username + " Title: " + data[i].recipeTitle + " Ingredients: " + data[i].recipeIngredients + " Category: " + data[i].recipeCategories + " Directions: " + data[i].recipeDirections;
