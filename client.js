@@ -50,7 +50,7 @@ function addNewRecipe() {
       document.querySelector("#titleTD").innerHTML = data[last].recipeTitle;
       document.querySelector("#ingredientTD").innerHTML = data[last].recipeIngredients;
       document.querySelector("#categoriesTD").innerHTML = data[last].recipeCategories;
-			document.querySelector("#directionTD").innerHTML = data[last].recipeDirection;
+			document.querySelector("#directionTD").innerHTML = data[last].recipeDirections;
     }
     else {console.log("ERROR");}
   }
@@ -70,6 +70,7 @@ function getAll() {
       {
         var recipe = "Username: " + data[i].username + " Title: " + data[i].recipeTitle + " Ingredients: " + data[i].recipeIngredients + " Category: " + data[i].recipeCategories + " Directions: " + data[i].recipeDirections;
         var newP = document.createElement("p");
+        newP.setAttribute('id', 'recipePrintOut');
         var recipeNode = document.createTextNode(recipe);
         newP.appendChild(recipeNode);
         document.querySelector("#allRecipeDiv").appendChild(newP);

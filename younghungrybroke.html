@@ -29,23 +29,23 @@
     <div id=content>
       <div id="recipeInfoBox">
         <p id="recipeName"></p>
-        <p id="totalTime"></p>
-        <a id="url" href="" target="_blank"></a>
         <p id="yields"></p>
+        <p id="totalTime"></p>
         <p id="ingredients"></p>
         <ul id="ingrList"></ul>
-        <p id="dietLabels"></p>
+        <a id="url" href="" target="_blank"></a>
         <img id="recImg">
       </div>
+      <button type="button" class="button" id="closebtn" onclick="closeBtn();">Close</button>
       <!-- Nutrition Facts -->
       <!-- From https://codepen.io/chriscoyier/pen/egHEK -->
       <div id="nutritionBox" class="performance-facts">
         <header class="performance-facts__header">
           <h1 class="performance-facts__title">Nutrition Facts</h1>
-          <p>Serving Size 1/2 cup (about 82g)
-          <p>Serving Per Container 8</p>
+          <!-- <p>Serving Size 1/2 cup (about 82g)
+          <p>Serving Per Container 8</p> -->
         </header>
-        <table class="performance-facts__table">
+        <table class="nBody" class="performance-facts__table">
           <thead>
             <tr>
               <th colspan="3" class="small-info">
@@ -55,198 +55,110 @@
           </thead>
           <tbody>
             <tr>
-              <th colspan="2">
+              <th colspan="2" >
                 <b>Calories</b>
-                200
               </th>
               <td>
-                Calories from Fat
-                130
-              </td>
-            </tr>
-            <tr class="thick-row">
-              <td colspan="3" class="small-info">
-                <b>% Daily Value*</b>
+                <b id="calories"></b>
               </td>
             </tr>
             <tr>
               <th colspan="2">
                 <b>Total Fat</b>
-                14g
               </th>
               <td>
-                <b>22%</b>
+                <b id="totalFat"></b>
               </td>
             </tr>
             <tr>
               <td class="blank-cell">
               </td>
               <th>
-                Saturated Fat
-                9g
+                <b>Saturated Fat</b>
               </th>
               <td>
-                <b>22%</b>
-              </td>
-            </tr>
-            <tr>
-              <td class="blank-cell">
-              </td>
-              <th>
-                Trans Fat
-                0g
-              </th>
-              <td>
+                <b id="satFat"></b>
               </td>
             </tr>
             <tr>
               <th colspan="2">
                 <b>Cholesterol</b>
-                55mg
               </th>
               <td>
-                <b>18%</b>
+                <b id="cholest"></b>
               </td>
             </tr>
             <tr>
               <th colspan="2">
                 <b>Sodium</b>
-                40mg
               </th>
               <td>
-                <b>2%</b>
+                <b id="sodium"></b>
               </td>
             </tr>
             <tr>
               <th colspan="2">
                 <b>Total Carbohydrate</b>
-                17g
               </th>
               <td>
-                <b>6%</b>
+                <b id="totCarbs"></b>
               </td>
             </tr>
             <tr>
               <td class="blank-cell">
               </td>
               <th>
-                Dietary Fiber
-                1g
+                <b>Dietary Fiber<b>
               </th>
               <td>
-                <b>4%</b>
+                <b id="dietFib"></b>
               </td>
             </tr>
             <tr>
               <td class="blank-cell">
               </td>
               <th>
-                Sugars
-                14g
+                <b>Sugars<b>
               </th>
               <td>
+                <b id="sugar"></b>
               </td>
             </tr>
             <tr class="thick-end">
               <th colspan="2">
                 <b>Protein</b>
-                3g
               </th>
               <td>
+                <b id="protein"></b>
               </td>
             </tr>
           </tbody>
         </table>
-
-        <table class="performance-facts__table--grid">
+        <table class="nBody" class="performance-facts__table--grid">
           <tbody>
             <tr>
               <td colspan="2">
                 Vitamin A
-                10%
+                <span id="vitA"></span>
               </td>
               <td>
                 Vitamin C
-                0%
+                <span id="vitC"></span>
               </td>
             </tr>
             <tr class="thin-end">
               <td colspan="2">
                 Calcium
-                10%
+                <span id="calcium"></span>
               </td>
               <td>
                 Iron
-                6%
+                <span id="iron"></span>
               </td>
             </tr>
           </tbody>
         </table>
-
-        <p class="small-info">* Percent Daily Values are based on a 2,000 calorie diet. Your daily values may be higher or lower depending on your calorie needs:</p>
-
-        <table class="performance-facts__table--small small-info">
-          <thead>
-            <tr>
-              <td colspan="2"></td>
-              <th>Calories:</th>
-              <th>2,000</th>
-              <th>2,500</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th colspan="2">Total Fat</th>
-              <td>Less than</td>
-              <td>65g</td>
-              <td>80g</td>
-            </tr>
-            <tr>
-              <td class="blank-cell"></td>
-              <th>Saturated Fat</th>
-              <td>Less than</td>
-              <td>20g</td>
-              <td>25g</td>
-            </tr>
-            <tr>
-              <th colspan="2">Cholesterol</th>
-              <td>Less than</td>
-              <td>300mg</td>
-              <td>300 mg</td>
-            </tr>
-            <tr>
-              <th colspan="2">Sodium</th>
-              <td>Less than</td>
-              <td>2,400mg</td>
-              <td>2,400mg</td>
-            </tr>
-            <tr>
-              <th colspan="3">Total Carbohydrate</th>
-              <td>300g</td>
-              <td>375g</td>
-            </tr>
-            <tr>
-              <td class="blank-cell"></td>
-              <th colspan="2">Dietary Fiber</th>
-              <td>25g</td>
-              <td>30g</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p class="small-info">
-          Calories per gram:
-        </p>
-        <p class="small-info text-center">
-          Fat 9
-          &bull;
-          Carbohydrate 4
-          &bull;
-          Protein 4
-        </p>
       </div>
-      <button type="button" class="button" onclick="displayNutrition();">Nutrition</button>
-      <button type="button" class="button" id="closebtn" onclick="closeBtn();">Close</button>
     </div>
   </div>
 
@@ -295,7 +207,7 @@
       </div>
     </div>
     <div class="box" onclick="getFromCat(7);">
-      <img class="image" id="pic7" src="https://lh3.googleusercontent.com/AjItQ71M-2y9BtYywV7JHlQY4OwoViVt3lgaIvdzy8Qap8AQLe44kIbQX8YKDGL6zwC1tA=s85">
+      <img class="image" id="pic7" src="https://www.fpdr.co.uk/pr/wp-content/uploads/2016/07/lowSugar-300x261.png">
       <div class="mid">
         <p class="text" id="t7">Sugar-Conscious</p>
       </div>
@@ -313,7 +225,7 @@
       </div>
     </div>
     <div class="box" onclick="getFromCat(10);">
-      <img class="image" id="pic10" src="https://megahealth.ca/wp-content/uploads/2019/12/no-alcohol.jpg">
+      <img class="image" id="pic10" src="https://static.vecteezy.com/system/resources/previews/000/617/366/non_2x/no-alcohol-sign-drinking-alcohol-is-forbidden-icon-vector.jpg">
       <div class="mid">
         <p class="text" id="t10">Alcohol Free</p>
       </div>

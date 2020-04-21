@@ -20,12 +20,15 @@ h3{
   font-size: 26px;
   padding-bottom: 5px;
 }
+#recipePrintOut{
+  margin: 10px;
+}
 
 .navBar {
   background-color: #AAC85C;
   overflow: hidden;
 }
-.button, .navBar a {
+.navBar a {
   background-color: #AAC85C;
   float: left;
   color: #f2f2f2;
@@ -50,6 +53,7 @@ h3{
   margin-top: -200px;
   z-index: -1;
   width: 100%;
+  /* display: none; */
 }
 #content{
   /* height: 75%; */
@@ -72,9 +76,9 @@ h3{
   display: inline;
 }
 
-
 #recipeInfoBox{
   width: 40%;
+  margin: 10px;
 }
 
 #recipeBox, #searchBtn, #randomBtn{
@@ -93,9 +97,9 @@ h3{
 #searchbox {
   margin: 15px;
 }
-#recipeDivBox{
+/* #recipeDivBox{
   display: none;
-}
+} */
 /* FLEXBOX FOR THE CATEGORIES - START*/
 #catHeader, #searchedCat{
   text-align: center;
@@ -106,6 +110,9 @@ h3{
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+#searchedDiv{
+  width: 300px;
 }
 .box {
   position: relative;
@@ -149,19 +156,19 @@ h3{
 
 /* NUTRITIONAL FACTS */
 @import "compass/css3";
-/*
-body {
-  font-size: small;
+.nbody {
+  font-size: 12px;
   line-height: 1.4;
+  /* margin: 0; */
+
 }
-p {
-  margin: 0;
-} */
+
+
 .performance-facts {
   border: 1px solid black;
-  margin: 20px;
+  /* margin: 20px; */
   float: left;
-  width: 50%;
+  width: 280px;
   padding: 0.5rem;
   table {
     border-collapse: collapse;
@@ -212,6 +219,7 @@ p {
 .small-info {
   font-size: 0.7rem;
 }
+
 .performance-facts__table--small {
   @extend .performance-facts__table;
   border-bottom: 1px solid #999;
@@ -231,8 +239,11 @@ p {
     padding: 0;
   }
 }
+
 .performance-facts__table--grid {
   @extend .performance-facts__table;
+  border-top: 10px solid black;
+
   margin: 0 0 0.5rem 0;
   td {
     &:last-child {
@@ -245,6 +256,7 @@ p {
     }
   }
 }
+
 .text-center {
   text-align: center;
 }
@@ -254,7 +266,8 @@ p {
 .thin-end {
   border-bottom: 1px solid black;
 }
-/* NUTRITION FACTS END */
+/* End Nutrition Facts CSS */
+
 
 /* recipe.html */
 #shareRecipe {
